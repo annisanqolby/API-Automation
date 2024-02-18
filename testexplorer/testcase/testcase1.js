@@ -34,7 +34,7 @@
 //     it("Test DEL", async function () {
 //         const response = await request(url).del("/objects/6");
 //         //assertation / verifikasi
-//         expect(response.status).to.equal(200);
+//         expect(response.status).to.equal(405);
 //         console.log(response.body)
 //     } )
 // })
