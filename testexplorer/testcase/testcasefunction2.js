@@ -1,15 +1,16 @@
-const { getMethod, postMethod, delMethod} = require("../apiserver/apiobjects")
+const { getMethod, postMethod, deleteMethod} = require("../apiserver/apiobjects")
 
 //test suites
 describe("testing API Restful", function () {
+    let id;
     //test case 1
     it("test GET from function", async function () {
         await getMethod();
     });
     it("test POST from function", async function () {
-         await postMethod();
+         await postMethod(id);
     })
-    it("test DEL from function", async function () {
-        await delMethod();
+    it("test DELETE from function", async function () {
+        await deleteMethod(id);
     })
 }) 
