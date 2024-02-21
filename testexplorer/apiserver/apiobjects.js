@@ -28,8 +28,10 @@ async function postMethod() {
     expect(response.body.name).to.equal( "Apple MacBook Pro 16");
     expect(response.body.data.year).to.equal( "2019");
     expect(response.body.data.price).to.equal( "1849.99");
-    expect(response.body.data.CPU).to.equal("Intel Core i9");
-    expect(response.body.data.Hard).to.equal("1 TB");
+    expect(response.body.data).to.deep.include({
+       "CPU model": "Intel Core i9",
+       "Hard disk size": "1 TB",
+    });
     
     expect(response.body.createdAt).to.not.be.null;
     //simpan id after post
@@ -43,13 +45,13 @@ async function postMethod() {
 async function deleteMethod(id) {
     const response = await request(url).delete(`/objects/${id}`)
     //assertation / verifikasi
-    expect(response.body.message).to.equal(`object with id = ${id} has been deleted.`
-    );
+    expect(response.body.message).to.equal(`Object with id = ${id}, has been deleted.`
+    ); 
     expect(response.body.error).to.equal(`object with id = ${id} was not found.`
     );
+
     console.log(response.body.message);
     console.log(response.body);
-
 }
 
 
